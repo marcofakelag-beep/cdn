@@ -1,4 +1,4 @@
-# 🔥 MARCO PROXY V9
+# 🔥 XITEXE PROXY V9
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/xitexe-proxy)
 
@@ -41,6 +41,3 @@ npm install
 
 # Run locally
 npm start
-
-# Or using serve directly
-npx serve -l 8080
