@@ -1,0 +1,12 @@
+{
+    "name": "marco-proxy",
+    "version": "9.0.0",
+    "description": "MARCO PROXY V9 - Game Proxy Dashboard with CDN",
+    "main": "index.html",
+    "scripts": {
+        "start": "npx serve -l 8080"
+    },
+    "dependencies": {
+        "serve": "^14.2.1"
+    }
+}

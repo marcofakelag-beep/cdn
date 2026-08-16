@@ -1,0 +1,12 @@
+{
+    "build": {
+        "builder": "marco-ultra"
+    },
+    "deploy": {
+        "startCommand": "npx serve -l 8080",
+        "healthcheckPath": "/",
+        "healthcheckTimeout": 100,
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 10
+    }
+}
