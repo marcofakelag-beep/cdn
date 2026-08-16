@@ -1,37 +1,10 @@
 {
     "name": "xitexe-proxy",
     "version": "9.0.0",
-    "description": "XITEXE PROXY V9 - Secure Access Gateway with CDN Proxy",
-    "main": "index.html",
     "scripts": {
-        "start": "./start.sh",
-        "dev": "npx serve -l 8080",
-        "build": "echo 'No build needed'",
-        "test": "echo 'No tests configured'"
+        "start": "npx serve -l 8080"
     },
-    "keywords": [
-        "proxy",
-        "game",
-        "freefire",
-        "xitexe",
-        "cdn",
-        "gateway"
-    ],
-    "author": "XITEXE",
-    "license": "MIT",
     "dependencies": {
         "serve": "^14.2.1"
-    },
-    "engines": {
-        "node": ">=16.0.0",
-        "npm": ">=8.0.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/marcofakelag-beep/cdn.git
-    },
-    "bugs": {
-        "url": "https://github.com/marcofakelag-beep/cdn/issues"
-    },
-    "homepage": "https://github.com/marcofakelag-beep/cdn#readme"
+    }
 }
