@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#08090d">
-    <title>MARCO · PROXY V9</title>
+    <title>XITEXE · PROXY V9</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -721,4 +721,438 @@
             height: 26px;
             border-radius: 50%;
             background: #737785;
-            transiti
+            transition: transform .22s, background .22s, box-shadow .22s
+        }
+
+        .switch input:checked+.knob {
+            transform: translateX(26px);
+            background: var(--green);
+            box-shadow: 0 0 17px rgba(77, 228, 154, .7)
+        }
+
+        .switch:has(input:checked) {
+            background: #1d4140;
+            border-color: rgba(77, 228, 154, .38);
+            box-shadow: 0 0 18px rgba(77, 228, 154, .12)
+        }
+
+        .risk-label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin: 15px 0 11px;
+            color: #ff6a7a;
+            font: 600 10px var(--mono);
+            letter-spacing: .22em;
+            text-transform: uppercase
+        }
+
+        .speed-line {
+            display: grid;
+            grid-template-columns: 40px 1fr 44px;
+            align-items: center;
+            gap: 10px;
+            color: #858b98;
+            font: 10px var(--mono)
+        }
+
+        .speed-line strong {
+            color: var(--red);
+            font-size: 15px;
+            text-align: right
+        }
+
+        .speed-range {
+            width: 100%;
+            height: 5px;
+            accent-color: var(--red);
+            cursor: pointer
+        }
+
+        .settings-note {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 17px 0 0;
+            color: #727987;
+            font: 10px var(--mono);
+            letter-spacing: .03em
+        }
+
+        .settings-note i {
+            color: var(--red)
+        }
+
+        .auth-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 17px;
+            color: #747b88;
+            font: 10px var(--mono);
+            letter-spacing: .08em
+        }
+
+        .auth-footer .key-dot {
+            color: var(--yellow, #f6c744)
+        }
+
+        .music-btn {
+            position: fixed;
+            z-index: 5;
+            right: 20px;
+            bottom: 20px;
+            width: 166px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 15px;
+            border: 1px solid rgba(255, 61, 85, .55);
+            border-radius: 999px;
+            color: var(--red);
+            background: linear-gradient(110deg, rgba(33, 15, 21, .97), rgba(11, 13, 19, .95));
+            box-shadow: 0 0 22px rgba(255, 61, 85, .18), inset 0 0 16px rgba(255, 61, 85, .08);
+            cursor: pointer;
+            backdrop-filter: blur(12px);
+            transition: transform .2s, background .2s, color .2s, border-color .2s, box-shadow .2s
+        }
+
+        .music-btn:before {
+            content: "";
+            position: absolute;
+            inset: -6px;
+            border: 1px solid currentColor;
+            border-radius: 999px;
+            opacity: .24;
+            animation: musicHalo 2.5s ease-out infinite
+        }
+
+        .music-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 0 34px rgba(255, 61, 85, .32), inset 0 0 18px rgba(255, 61, 85, .12)
+        }
+
+        .music-btn.playing {
+            color: var(--green);
+            border-color: rgba(77, 228, 154, .62);
+            background: linear-gradient(110deg, rgba(10, 39, 31, .97), rgba(11, 18, 21, .95));
+            box-shadow: 0 0 32px rgba(77, 228, 154, .26), inset 0 0 18px rgba(77, 228, 154, .1)
+        }
+
+        .music-note {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            place-items: center;
+            width: 27px;
+            height: 27px;
+            font-size: 20px
+        }
+
+        .music-label {
+            position: relative;
+            z-index: 1;
+            min-width: 68px;
+            color: #e8e9ed;
+            font: 600 10px var(--mono);
+            letter-spacing: .18em
+        }
+
+        .music-btn.playing .music-label {
+            color: var(--green)
+        }
+
+        .music-bars {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 3px;
+            width: 34px;
+            height: 27px;
+            margin-left: auto
+        }
+
+        .music-bars i {
+            display: block;
+            width: 3px;
+            height: 7px;
+            border-radius: 3px;
+            background: currentColor;
+            opacity: .9;
+            transform-origin: center;
+            animation: equalizer .85s ease-in-out infinite alternate;
+            animation-play-state: paused
+        }
+
+        .music-bars i:nth-child(2) {
+            height: 15px;
+            animation-delay: -.2s
+        }
+
+        .music-bars i:nth-child(3) {
+            height: 22px;
+            animation-delay: -.55s
+        }
+
+        .music-bars i:nth-child(4) {
+            height: 12px;
+            animation-delay: -.1s
+        }
+
+        .music-bars i:nth-child(5) {
+            height: 19px;
+            animation-delay: -.4s
+        }
+
+        .music-bars i:nth-child(6) {
+            height: 9px;
+            animation-delay: -.7s
+        }
+
+        .music-bars i:nth-child(7) {
+            height: 16px;
+            animation-delay: -.3s
+        }
+
+        .music-btn.playing .music-bars i {
+            animation-play-state: running
+        }
+
+        @keyframes equalizer {
+            from {
+                transform: scaleY(.28);
+                opacity: .5
+            }
+            to {
+                transform: scaleY(1.12);
+                opacity: 1
+            }
+        }
+
+        @keyframes musicHalo {
+            0% {
+                transform: scale(.96);
+                opacity: .38
+            }
+            75%,
+            100% {
+                transform: scale(1.08);
+                opacity: 0
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 18px;
+            color: #626977;
+            font: 9px var(--mono);
+            letter-spacing: .12em;
+            text-transform: uppercase
+        }
+
+        footer .credit {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 9px;
+            font-size: 11px
+        }
+
+        footer a {
+            color: #7d8491;
+            text-decoration: none
+        }
+
+        footer a:hover {
+            color: #fff
+        }
+
+        @media(max-width:520px) {
+            body {
+                padding: 18px 13px
+            }
+            .card {
+                padding: 22px 17px
+            }
+            .brand-mark {
+                font-size: 11px
+            }
+            .music-btn {
+                right: 14px;
+                bottom: 14px;
+                width: 151px;
+                height: 54px
+            }
+            .music-label {
+                font-size: 9px;
+                min-width: 62px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            *,
+            *:before,
+            *:after {
+                animation: none !important;
+                scroll-behavior: auto !important;
+                transition-duration: .001ms !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scene"><span class="orb a"></span><span class="orb b"></span></div>
+    <main class="wrap">
+        <div class="brand-row">
+            <div class="brand-mark"><i class="fa-solid fa-bolt"></i><span><strong>XITEXE</strong> / PROXY</span></div><span class="version">V9.0</span></div>
+        <header class="hero">
+            <div class="eyebrow">SYSTEM LOCKED</div>
+            <h1><span class="glitch main-glitch" data-text="XITEXE PROXY">XITEXE PROXY</span></h1>
+            <p>Secure access gateway · key verified IP registration</p>
+        </header>
+        <section class="card dashboard-card" aria-label="Authorized proxy dashboard">
+            <div class="card-head">
+                <div>
+                    <div class="card-title">Access active</div>
+                    <div class="card-subtitle">XITEXE PROXY CONTROL PANEL</div>
+                </div>
+                <div class="lock-icon" style="color:var(--green);border-color:rgba(77,228,154,.34);background:rgba(77,228,154,.1)"><i class="fa-solid fa-check"></i></div>
+            </div>
+            <div class="dashboard-status"><i class="fa-solid fa-shield-halved"></i><span class="dot"></span><span>ACCESS ACTIVE</span></div>
+            <div class="status-grid">
+                <div class="status-box"><span>STATUS</span><strong class="ok" id="statusValue">ACTIVE</strong></div>
+                <div class="status-box"><span>CHEST</span><strong class="ok" id="chestValue">ON</strong></div>
+                <div class="status-box"><span>SPEED</span><strong id="speedStatus">OFF</strong></div>
+                <div class="status-box"><span>YOUR IP</span><strong class="ip" style="color:#ff7181">59.152.97.166</strong></div>
+            </div>
+            <div class="active-hacks" style="margin: 15px 0; padding: 12px; border: 1px solid rgba(255,255,255,.08); border-radius: 13px; background: rgba(255,255,255,.025);">
+                <div style="display: flex; justify-content: space-between; font: 10px var(--mono);"><span style="color: #757b88;">ACTIVE HACKS</span><span id="activeHacksDisplay" style="color: var(--green);">CHEST</span></div>
+            </div>
+            <div class="control-list">
+                <div class="control-row">
+                    <div class="control-name"><i class="fa-solid fa-crosshairs"></i><span>Headshot Chest</span></div><label class="switch" aria-label="Toggle Headshot Chest"><input id="chestToggle" type="checkbox" checked><span class="knob"></span></label></div>
+                <div class="control-row">
+                    <div class="control-name"><i class="fa-solid fa-gauge-high"></i><span>Speed Toggle</span></div><label class="switch" aria-label="Toggle Speed"><input id="speedToggle" type="checkbox"><span class="knob"></span></label></div>
+            </div>
+            <div class="risk-label"><i class="fa-solid fa-triangle-exclamation"></i><span>SPEED FULL RISK</span><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="speed-line"><span>1.0x</span><input id="speedRange" class="speed-range" type="range" min="1" max="3.5" value="3.5" step="0.1" aria-label="Speed multiplier"><strong id="speedValue">OFF</strong></div>
+            <div class="settings-note"><i class="fa-solid fa-rocket"></i><span>Settings auto-save. Launch the game.</span></div>
+            <div class="auth-footer"><span class="key-dot"><i class="fa-solid fa-key"></i></span><span>XIT</span><span class="dot" style="width:7px;height:7px;background:var(--green);border-radius:50%"></span><span id="sessionTimer">ACTIVE SESSION</span></div>
+        </section>
+        <script>
+            (function() {
+                const chest = document.getElementById('chestToggle'),
+                    speed = document.getElementById('speedToggle'),
+                    range = document.getElementById('speedRange'),
+                    chestValue = document.getElementById('chestValue'),
+                    speedStatus = document.getElementById('speedStatus'),
+                    speedValue = document.getElementById('speedValue'),
+                    activeDisplay = document.getElementById('activeHacksDisplay');
+                let state = {
+                    chest: true,
+                    speed_toggle: false,
+                    speed: 3.5
+                };
+
+                function updateActiveHacks() {
+                    let hacks = [];
+                    if (chest.checked) hacks.push('CHEST');
+                    if (speed.checked) hacks.push('SPEED ' + Number(range.value).toFixed(1) + 'x');
+                    activeDisplay.textContent = hacks.length ? hacks.join(' + ') : 'NONE';
+                    activeDisplay.style.color = hacks.length ? 'var(--green)' : '#858b98'
+                }
+
+                function paint() {
+                    chest.checked = !!state.chest;
+                    speed.checked = !!state.speed_toggle;
+                    range.value = state.speed || 3.5;
+                    chestValue.textContent = chest.checked ? 'ON' : 'OFF';
+                    chestValue.className = chest.checked ? 'ok' : '';
+                    speedStatus.textContent = speed.checked ? 'ON' : 'OFF';
+                    speedStatus.className = speed.checked ? 'ok' : '';
+                    speedValue.textContent = speed.checked ? (Number(range.value).toFixed(1) + 'x') : 'OFF';
+                    speedValue.style.color = speed.checked ? 'var(--red)' : '#858b98';
+                    range.disabled = !speed.checked;
+                    updateActiveHacks()
+                }
+                async function save() {
+                    try {
+                        await fetch('/settings', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(state)
+                        })
+                    } catch (e) {}
+                }
+                async function load() {
+                    try {
+                        const r = await fetch('/settings');
+                        if (r.ok) {
+                            const d = await r.json();
+                            state = Object.assign(state, d)
+                        }
+                    } catch (e) {}
+                    paint()
+                }
+                chest.addEventListener('change', () => {
+                    state.chest = chest.checked;
+                    paint();
+                    save()
+                });
+                speed.addEventListener('change', () => {
+                    state.speed_toggle = speed.checked;
+                    paint();
+                    save()
+                });
+                range.addEventListener('input', () => {
+                    state.speed = Number(range.value);
+                    paint()
+                });
+                range.addEventListener('change', save);
+                load();
+            })();
+        </script>
+        <footer><span>XITEXE PROXY · V9.0</span></footer>
+    </main><button class="music-btn" id="musicBtn" aria-label="Play music"><span class="music-note"><i class="fa-solid fa-music"></i></span><span class="music-label">PLAY</span><span class="music-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></button>
+    <audio
+        id="bgMusic" loop preload="none">
+        <source src="https://raw.githubusercontent.com/xitexes-rgb/Song/refs/heads/main/KALEO%20-%20Way%20Down%20We%20Go%20(Official%20Music%20Video)%20-%20KALEO%20(youtube).mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            let musicPlaying = false;
+            const audio = document.getElementById('bgMusic'),
+                musicBtn = document.getElementById('musicBtn');
+
+            function setMusicState(active) {
+                musicBtn.classList.toggle('playing', active);
+                musicBtn.setAttribute('aria-label', active ? 'Pause music' : 'Play music');
+                musicBtn.querySelector('.music-note').innerHTML = active ? '<i class="fa-solid fa-volume-low"></i>' : '<i class="fa-solid fa-music"></i>';
+                musicBtn.querySelector('.music-label').textContent = active ? 'NOW PLAYING' : 'PLAY'
+            }
+            musicBtn.addEventListener('click', async () => {
+                if (musicPlaying) {
+                    audio.pause();
+                    musicPlaying = false;
+                    setMusicState(false);
+                    return
+                }
+                try {
+                    await audio.play();
+                    musicPlaying = true;
+                    setMusicState(true)
+                } catch (e) {
+                    setMusicState(false)
+                }
+            });
+        </script>
+</body>
+
+</html>
